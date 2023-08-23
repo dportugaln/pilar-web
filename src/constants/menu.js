@@ -1,19 +1,26 @@
 export const drawerMenu = [
     {
-    title: "inicio",
-    path: "/",
+      title: "inicio",
+      path: "/",
     },
     {
-    title: "pages",
-    children: [
-    {
-    title: "todo",
-    path: "/todo"
+      title: "pages",
+      children: [
+        {
+          title: "todo",
+          path: "/todo",
+        },
+        {
+          title: "Fetchlist",
+          path: "/fetchlist",
+        },
+      ],
     },
-    {
-    title: "fetchList",
-    path: "/fetch-list"
-    }
-    ]
-    }
-    ]
+  ];
+
+    export const popMenu = [
+        {
+        title: "Inicio",
+        path: "/",
+        },
+        ];
