@@ -25,40 +25,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 const drawerWidth = 240;
 
-const SideMenu = ({ open, onClose }) => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    if (open) {
-      onClose();
-    }
-  }, [pathname, open]);
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <Drawer open={open} onClose={onClose} sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: drawerWidth,
-          boxSizing: 'border-box',
-        },
-      }}>
-        <Menu items={drawerMenu} />
-      </Drawer>
-    </Box>
-  )
-}
-
-
-const Menu = ({ items }) => {
-  return (
-    <List>
-      {
-        items.map(item => <MenuItem key={item.title} item={item} />)
-      }
-    </List>
-  )
-}
-
 const MenuItem = ({ item }) => {
   const navigate = useNavigate()
   const { children, title, path } = item
@@ -160,7 +126,32 @@ const PopMenu = () => {
             <ListItemText disableTypography>{item.title}</ListItemText>
           </MenuItemMui>
         ))}
-      </MenuPopover></Box>
+      </MenuPopover>
+    </Box>
+  )
+}
+
+
+const SideMenu = ({ open, onClose }) => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (open) {
+      onClose();
+    }
+  }, [pathname, open]);
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <Drawer open={open} onClose={onClose} sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          width: drawerWidth,
+          boxSizing: 'border-box',
+        },
+      }}>
+        <Menu items={drawerMenu} />
+      </Drawer>
+    </Box>
   )
 }
 
@@ -169,7 +160,6 @@ const DashboardLayout = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <SideMenu open={open} onClose={() => setOpen(false)} />
       <AppBar position="absolute">
         <Toolbar sx={{
           pr: '24px',
@@ -178,6 +168,8 @@ const DashboardLayout = () => {
           <Button sx={{ color: "#FFF" }} onClick={() => setOpen(true)}>
             <MenuIcon />
           </Button>
+
+          <SideMenu open={open} onClose={() => setOpen(false)} />
 
           <Typography
             component="h1" variant="h6"
