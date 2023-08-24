@@ -16,6 +16,7 @@ const Routes = () => {
         children: [
           { path: "", element: <Dashboard /> },
           { path: "todo", element: <Todo /> },
+          { path: "fetchlist", element: <Fetchlist />}
         ],
       },
       { path: "/404", element: <NotFound /> },
