@@ -26,13 +26,13 @@ const Todo = () => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <Paper sx={{ p: 2 }}>
+        <Paper sx={{ p: 2, backgroundColor: "#fcfcfc" }}>
           <Card>
             <CardHeader title="To do" />
 
           </Card>
 
-          <Card>
+          <Card sx={{ my: 2}}>
             <CardHeader title="Agrega una tarea" />
             <CardContent>
               <Stack sx={{ justifyContent: 'space-around' }} direction='row'>
@@ -47,7 +47,7 @@ const Todo = () => {
               </Stack>
             </CardContent>
           </Card>
-          <Card>
+          <Card sx={{ my: 2 }}>
             <CardHeader title="Tareas" />
             <CardContent>
               {todo.map((t, index) =>
