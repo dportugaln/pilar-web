@@ -22,6 +22,8 @@ import MenuIcon from "@mui/icons-material/Menu"
 import { drawerMenu, popMenu } from '../../constants/menu'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import { Divider } from '@mui/material'
 
 const drawerWidth = 240;
 
@@ -131,6 +133,15 @@ const PopMenu = () => {
   )
 }
 
+const Menu = ({ items }) => {
+  return (
+    <List>
+      {items.map((item) => (
+        <MenuItem item={item} />
+      ))}
+    </List>
+  );
+};
 
 const SideMenu = ({ open, onClose }) => {
   const { pathname } = useLocation();
@@ -138,7 +149,7 @@ const SideMenu = ({ open, onClose }) => {
     if (open) {
       onClose();
     }
-  }, [pathname, open]);
+  }, [pathname]);
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer open={open} onClose={onClose} sx={{
@@ -149,6 +160,11 @@ const SideMenu = ({ open, onClose }) => {
           boxSizing: 'border-box',
         },
       }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', p: 1 }}>
+          <IconButton onClick={onClose}>
+            {open ? <ChevronLeftIcon /> : <MenuIcon />}
+          </IconButton>
+        </Box>
         <Menu items={drawerMenu} />
       </Drawer>
     </Box>
