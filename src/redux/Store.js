@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { appReducer } from "./appRedux"
+import { appReducer } from "./AppRedux"
 
 const store = createStore(appReducer)
 

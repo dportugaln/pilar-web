@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BASE_URL, IMG_URL } from '../constants/Index.js'
 
 const headers = () => {
     const headers = {
@@ -61,4 +62,6 @@ export default {
     GET,
     PATCH,
     DELETE,
+
+    pokemons:`${BASE_URL}/pokemon`,
     }

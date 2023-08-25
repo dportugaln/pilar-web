@@ -19,7 +19,7 @@ import {
   Collapse
 } from '@mui/material';
 import MenuIcon from "@mui/icons-material/Menu"
-import { drawerMenu, popMenu } from '../../constants/menu'
+import { drawerMenu, popMenu } from '../../constants/Menu'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
@@ -175,7 +175,7 @@ const DashboardLayout = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar sx={{background: 'linear-gradient(180deg, #E91B36, #A21326)'}} position="absolute">
+      <AppBar sx={{ background: 'linear-gradient(180deg, #E91B36, #A21326)' }} position="absolute">
         <Toolbar sx={{
           pr: '24px',
         }}

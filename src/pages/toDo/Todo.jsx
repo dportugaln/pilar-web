@@ -1,6 +1,6 @@
 import React, { useState } from "react"; import { v4 as uuid } from 'uuid';
 import { useSelector, useDispatch } from "react-redux";
-import { appSelector, appActions } from "../redux/appRedux";
+import { appSelector, appActions } from "../../redux/AppRedux";
 import { Grid, Paper, Card, CardHeader, CardContent, TextField, Button, Stack, Typography, Checkbox } from "@mui/material";
 const Todo = () => {
   const dispatch = useDispatch()
