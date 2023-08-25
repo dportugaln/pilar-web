@@ -2,8 +2,8 @@ import { Navigate, useRoutes } from 'react-router-dom';
 import DashboardLayout from "./layouts/DashboardLayout"; 
 import NotFound from "./layouts/NotFound";
 import Dashboard from "./dashboard/Dashboard";
-import Fetchlist from './fetchlist';
-import Todo from './todo';
+import Fetchlist from './fetchList/Fetchlist';
+import Todo from './todo/ToDo';
 
 
 

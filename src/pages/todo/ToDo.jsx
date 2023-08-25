@@ -5,12 +5,10 @@ const Todo = () => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <Paper sx={{ p: 2 }}>
-          <Card>
-            <CardHeader title="To do" />
+        <Card>
+          <CardHeader title="To do" />
 
-          </Card>
-        </Paper>
+        </Card>
       </Grid>
     </Grid>
   );
