@@ -62,11 +62,11 @@ export const appReducer = (state = stateInitial, action) => {
                 ...state,
                 todo: state.todo.filter(t => t.id !== action.id)
             }
-            case SET_LOADING:
-                return {
-                    ...state,
-                    loading: action.value
-                }
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: action.value
+            }
         default:
             return state;
     }

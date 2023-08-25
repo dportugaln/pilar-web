@@ -1,6 +1,6 @@
 import React from "react";
 import { IMG_URL } from "../constants/Index";
-import { Dialog, DialogTitle, DialogContent, Typography, CardMedia } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, Typography, CardMedia, Grid } from "@mui/material";
 
 const PokemonDetail = ({ open, onClose, pokemon }) => {
   if (!pokemon) return null;
@@ -18,18 +18,43 @@ const PokemonDetail = ({ open, onClose, pokemon }) => {
 
   const imgID = getPokemonImgId(pokemon.id);
 
+  const halfMoves = Math.ceil(pokemon.moves.length / 2);
+  const firstHalfMoves = pokemon.moves.slice(0, halfMoves);
+  const secondHalfMoves = pokemon.moves.slice(halfMoves);
+
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>{pokemon.name}</DialogTitle>
       <DialogContent>
-        <Typography>N° {imgID}</Typography>
         <CardMedia
           component="img"
-          sx={{ width: 200 }}
+          sx={{ width: "100%" }}
           src={`${IMG_URL}/${imgID}.png`}
           alt="Pokemon"
         />
-        {/* Movimientos y habilidades */}
+        <Typography align="center" variant="h6">Habilidades:</Typography>
+        <ul>
+          {pokemon.abilities.map((ability, index) => (
+            <li key={index}>{ability.ability.name}</li>
+          ))}
+        </ul>
+        <Typography align="center" variant="h6">Movimientos:</Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <ul>
+              {firstHalfMoves.map((move, index) => (
+                <li key={index}>{move.move.name}</li>
+              ))}
+            </ul>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <ul>
+              {secondHalfMoves.map((move, index) => (
+                <li key={index}>{move.move.name}</li>
+              ))}
+            </ul>
+          </Grid>
+        </Grid>
       </DialogContent>
     </Dialog>
   );

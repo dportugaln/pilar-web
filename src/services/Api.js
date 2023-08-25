@@ -63,5 +63,5 @@ export default {
     PATCH,
     DELETE,
 
-    pokemons:`${BASE_URL}/pokemon`,
-    }
+    pokemons: `${BASE_URL}/pokemon`,
+}
