@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { appActions } from "../../redux/AppRedux";
 import { BASE_URL, IMG_URL } from "../../constants/Index";
 import api from '../../services/Api'
+import PokemonDetail from '../../components/PokemonDetails'
 import { Grid, Paper, Card, CardMedia, CardHeader, CardContent, TextField, Button, Stack, Typography, Checkbox } from "@mui/material";
 
 const Fetchlist = () => {
@@ -52,7 +53,7 @@ const Fetchlist = () => {
           component="img"
           sx={{ width: 100 }}
           src={`${IMG_URL}/${imgID}.png`}
-          alt="Live from space album cover"
+          alt="Pokemon"
         />
       </Card>
     )
@@ -86,6 +87,28 @@ const Fetchlist = () => {
     }
   }
 
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = async (url) => {
+    try {
+      dispatch(appActions.loading(true));
+      const response = await fetch(url);
+      const pokemonData = await response.json();
+      setSelectedPokemon(pokemonData);
+      setIsModalOpen(true);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(appActions.loading(false));
+    }
+  };
+
+  const handleCloseModal = () => {
+    setSelectedPokemon(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
@@ -96,7 +119,7 @@ const Fetchlist = () => {
       {
         pokemons && pokemons.map((p, index) => {
           return (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={4} key={index} onClick={() => handleOpenModal(p.url)}>
               {renderItem(p)}
             </Grid>
           )
@@ -117,10 +140,11 @@ const Fetchlist = () => {
             component="img"
             sx={{ width: 100, p: 2 }}
             image={require('../../assets/images/pokeimg.png')}
-            alt="Live from space album cover"
+            alt="Pokedex"
           />
         </Card>
       </Grid>
+      <PokemonDetail open={isModalOpen} onClose={handleCloseModal} pokemon={selectedPokemon} />
     </Grid>
   );
 };
