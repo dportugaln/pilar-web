@@ -3,7 +3,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import NotFound from "./layouts/NotFound";
 import Dashboard from "./dashboard/Dashboard";
 import Fetchlist from './fetchList/FetchList';
-import Todo from './toDo/Todo';
+import Todo from './toDo/ToDo';
 
 
 
