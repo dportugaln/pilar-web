@@ -51,7 +51,7 @@ const Fetchlist = () => {
         <CardMedia
           component="img"
           sx={{ width: 100 }}
-          src={`${IMG_URL}${imgID}.png`}
+          src={`${IMG_URL}/${imgID}.png`}
           alt="Live from space album cover"
         />
       </Card>
