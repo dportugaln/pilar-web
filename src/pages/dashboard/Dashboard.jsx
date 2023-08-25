@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Grid, Paper, Box, Card, CardContent, Typography } from '@mui/material';
 import ToDoImg from '../../assets/images/todo.png';
 import FetchlistImg from '../../assets/images/fetchlist.png';
-import { appSelector } from "../../redux/appRedux";
+import { appSelector } from "../../redux/AppRedux";
 
 const Dashboard = () => {
 
