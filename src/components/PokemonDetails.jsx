@@ -19,8 +19,8 @@ const PokemonDetail = ({ open, onClose, pokemon }) => {
   const imgID = getPokemonImgId(pokemon.id);
 
   const halfMoves = Math.ceil(pokemon.moves.length / 2);
-  const firstHalfMoves = pokemon.moves.slice(0, halfMoves);
-  const secondHalfMoves = pokemon.moves.slice(halfMoves);
+  const firstColumnMoves = pokemon.moves.slice(0, halfMoves);
+  const secondColumnMoves = pokemon.moves.slice(halfMoves);
 
   return (
     <Dialog open={open} onClose={onClose}>
@@ -42,14 +42,14 @@ const PokemonDetail = ({ open, onClose, pokemon }) => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <ul>
-              {firstHalfMoves.map((move, index) => (
+              {firstColumnMoves.map((move, index) => (
                 <li key={index}>{move.move.name}</li>
               ))}
             </ul>
           </Grid>
           <Grid item xs={12} md={6}>
             <ul>
-              {secondHalfMoves.map((move, index) => (
+              {secondColumnMoves.map((move, index) => (
                 <li key={index}>{move.move.name}</li>
               ))}
             </ul>

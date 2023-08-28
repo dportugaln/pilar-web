@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { appActions } from "../../redux/AppRedux";
-import { BASE_URL, IMG_URL } from "../../constants/Index";
+import { IMG_URL } from "../../constants/Index";
 import api from '../../services/Api'
 import PokemonDetail from '../../components/PokemonDetails'
-import { Grid, Paper, Card, CardMedia, CardHeader, CardContent, TextField, Button, Stack, Typography, Checkbox } from "@mui/material";
+import { Grid, Card, CardMedia, CardContent, Typography } from "@mui/material";
 
 const Fetchlist = () => {
 
@@ -133,7 +133,7 @@ const Fetchlist = () => {
           onClick={() => loadMore()}>
           <CardContent sx={{ flex: '1 0 auto' }}>
             <Typography component="div" variant="h5" sx={{ color: 'white' }}>
-              Cargar Más
+              Cargar más
             </Typography>
           </CardContent>
           <CardMedia
