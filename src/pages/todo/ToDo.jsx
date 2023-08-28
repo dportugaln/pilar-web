@@ -41,7 +41,7 @@ const Todo = () => {
               </Grid>
               <Grid item md={6}>
                 <Button variant="contained"
-                  onClick={() => addTask()} sx={{ backgroundColor: "#A21326" }}>Agregar</Button>
+                  onClick={() => addTask()}  sx={{ backgroundColor: "#A21326", "&:hover": { backgroundColor: "#E91B36" } }}>Agregar</Button>
               </Grid>
             </Stack>
           </CardContent>
@@ -64,7 +64,7 @@ const Todo = () => {
                 </Grid>
                 <Grid item md={2}>
                   <Button variant="contained"
-                    onClick={() => delTask(t.id)} sx={{ backgroundColor: "#A21326" }}>Eliminar</Button>
+                    onClick={() => delTask(t.id)}  sx={{ backgroundColor: "#A21326", "&:hover": { backgroundColor: "#E91B36" } }}>Eliminar</Button>
                 </Grid>
               </Stack>
             ))
